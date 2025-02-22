@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Presentation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .slide {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+    .slide.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide active">
+    <h1>Cybersecurity Chatbot</h1>
+    <p>Educating users about cybersecurity threats.</p>
+  </div>
+  <div class="slide">
+    <h2>Common Threats</h2>
+    <ul>
+      <li>Phishing</li>
+      <li>Malware</li>
+      <li>Ransomware</li>
+      <li>Social Engineering</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h2>How to Stay Safe</h2>
+    <ul>
+      <li>Use strong passwords</li>
+      <li>Enable 2FA</li>
+      <li>Avoid suspicious links</li>
+      <li>Regularly update software</li>
+    </ul>
+  </div>
+  <button id="prev-btn">Previous</button>
+  <button id="next-btn">Next</button>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+  </script>
+</body>
+</html>
